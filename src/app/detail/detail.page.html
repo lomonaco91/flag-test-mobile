@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Info. detalhadas do país</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-text-center">
+    <img src="{{flagCountry}}" class="flgMob" />
+  </div>
+
+  <p *ngIf="objCountry != undefined">Capital:{{objCountry.capital}}</p>
+  <p *ngIf="objCountry != undefined">Nome: {{objCountry.name}}</p>
+  <p *ngIf="objCountry != undefined">População: {{objCountry.population}}</p>
+  <p *ngIf="objCountry != undefined">Região: {{objCountry.region}}</p>
+  <p *ngIf="objCountry != undefined">Sub-regiao: {{objCountry.subregion}}</p>
+
+  <ion-button expand="block" mode="md" (click)="voltar()">Voltar</ion-button>
+</ion-content>

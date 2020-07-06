@@ -1,0 +1,34 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Flag-App
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formData">
+    <ion-item mode="md">
+      <ion-label>Escolha sua região:</ion-label>
+      <ion-select mode="md" formControlName="region">
+        <ion-select-option *ngFor="let reg of regionList" [value]="reg.idValue"
+          >{{reg.name}}</ion-select-option
+        >
+      </ion-select>
+    </ion-item>
+    <ul>
+      <div *ngFor="let infoCt of listInfoCountry">
+        <p>Nome do país: {{ infoCt.name }}</p>
+        <img src="{{ infoCt.flag }}" (click)="verMais(infoCt)" />
+        <hr />
+      </div>
+    </ul>
+    <ion-button
+      expand="block"
+      mode="md"
+      (click)="searchCountries()"
+      [disabled]="!formData.valid"
+      >Buscar países</ion-button
+    >
+  </form>
+</ion-content>
